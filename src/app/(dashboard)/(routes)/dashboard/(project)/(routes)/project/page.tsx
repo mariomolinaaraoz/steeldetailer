@@ -24,6 +24,9 @@ export default function GalleryPage() {
   //FILTRO////////////////////////////////////////////////////////////////
   const [searchTerm, setSearchTerm] = useState("");
 
+  const [data, setData] = useState("");
+  const [data1, setData1] = useState("");
+
   const filtered = todos.filter(
     (data) =>
       data.plano.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -36,13 +39,6 @@ export default function GalleryPage() {
     setSearchTerm(event.target.value);
   };
   //FILTRO////////////////////////////////////////////////////////////////
-
-  const dato: { descrip:string}[] = [
-    {
-      descrip: "Descripción: Estructura a un agua de 60mts de largo, por 35mts de ancho y 24mts de alto, con 5 entrepisos metálicos.",
-    }
-  ];
-  
 
   return (
     <>
@@ -62,13 +58,21 @@ export default function GalleryPage() {
         >
           <Button
             className="w-24 h-10 text-lg"
-            onClick={() => setProjectId("B")}
+            onClick={() => {
+              setProjectId("A"); 
+              setData("Descripción: Estructura a un agua de 60mts de largo, por 35mts de ancho y 24mts de alto, con 5 entrepisos metálicos.");
+              setData1("Area: 205 - Sector: A");
+            }}
           >
             35x60
           </Button>
           <Button
             className="w-24 h-10 text-lg"
-            onClick={() => setProjectId("A")}
+            onClick={() => {
+              setProjectId("B");
+              setData("Descripción: Estructura a dos agua de 60mts de largo, por 60mts de ancho y 15mts de alto.");
+              setData1("Area: 205 - Sector: B");
+            }}
           >
             60x60
           </Button>          
@@ -76,13 +80,13 @@ export default function GalleryPage() {
       </div>
       <div className="px-6 pt-0 pb-5 flex flex-col gap-8 justify-between sm:pt-0 lg:pt-10 xl:pt-10 sm:px-6 lg:px-20 xl:px-20">
         <h1 className="w-1/2 hidden sm:hidden lg:flex xl:flex">
-          {dato[0].descrip}
+          {data}
         </h1>
         <h1 className="w-1/2 hidden sm:hidden lg:flex xl:flex">
           Ubicación: Proyecto 3 Quebradas, Fiambalá. Catamarca, Argentina.
         </h1>
         <h1 className="w-1/2 hidden sm:hidden lg:flex xl:flex">
-          Area: 205 - Sector: A
+          {data1}
         </h1>
         <div className="w-full flex flex-row justify-between">
           <h1 className="w-1/3 hidden sm:hidden lg:flex xl:flex">

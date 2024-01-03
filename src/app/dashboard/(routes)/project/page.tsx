@@ -71,14 +71,7 @@ export default function GalleryPage() {
             onClick={() => setProjectId("A")}
           >
             60x60
-          </Button>
-          <Button
-            className="w-24 h-10 text-lg"
-            onClick={() => setProjectId("A")}
-          >
-            60x120
-          </Button>
-        </div>
+          </Button>          
       </div>
       <div className="px-6 pt-0 pb-5 flex flex-col gap-8 justify-between sm:pt-0 lg:pt-10 xl:pt-10 sm:px-6 lg:px-20 xl:px-20">
         <h1 className="w-1/2 hidden sm:hidden lg:flex xl:flex">

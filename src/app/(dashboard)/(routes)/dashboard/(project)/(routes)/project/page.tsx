@@ -64,7 +64,7 @@ export default function GalleryPage() {
               setData1("Area: 205 - Sector: A");
             }}
           >
-            35x60
+            60x60
           </Button>
           <Button
             className="w-24 h-10 text-lg"
@@ -74,7 +74,7 @@ export default function GalleryPage() {
               setData1("Area: 205 - Sector: B");
             }}
           >
-            60x60
+            35x60
           </Button>          
         </div>
       </div>

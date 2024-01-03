@@ -72,6 +72,7 @@ export default function GalleryPage() {
           >
             60x60
           </Button>          
+        </div>
       </div>
       <div className="px-6 pt-0 pb-5 flex flex-col gap-8 justify-between sm:pt-0 lg:pt-10 xl:pt-10 sm:px-6 lg:px-20 xl:px-20">
         <h1 className="w-1/2 hidden sm:hidden lg:flex xl:flex">

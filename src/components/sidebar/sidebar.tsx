@@ -8,10 +8,6 @@ import {
   Home,
   LayoutDashboard,
   ImageIcon,
-  Video,
-  Music,
-  Code,
-  Settings,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
 
@@ -29,34 +25,10 @@ const routes = [
     color: "text-sky-500",
   },
   {
-    label: "Image Generation",
+    label: "Image",
     icon: ImageIcon,
-    href: "/image",
+    href: "/dashboard/image",
     color: "text-pink-700",
-  },
-  {
-    label: "Video Generation",
-    icon: Video,
-    href: "/video",
-    color: "text-orange-700",
-  },
-  {
-    label: "Music Generation",
-    icon: Music,
-    href: "/music",
-    color: "text-emerald-500",
-  },
-  {
-    label: "205 - Sector A",
-    icon: Code,
-    href: "/code",
-    color: "text-green-700",
-  },
-  {
-    label: "Settings",
-    icon: Settings,
-    href: "/settings",
-    color: "text-esmerald-500",
   },
 ];
 

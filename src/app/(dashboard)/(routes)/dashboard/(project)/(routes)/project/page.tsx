@@ -5,28 +5,15 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-import Autoplay from "embla-carousel-autoplay";
-export function Example() {
-  return (
-    <Carousel
-      plugins={[
-        Autoplay({
-          delay: 2000,
-        }),
-      ]}
-    >
-    </Carousel>
-  );
-}
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+// import {
+//   Carousel,
+//   CarouselContent,
+//   CarouselItem,
+//   CarouselNext,
+//   CarouselPrevious,
+// } from "@/components/ui/carousel";
 
 import { BlurImage } from "@/components/image/BlurImage";
 
@@ -114,13 +101,8 @@ export default function GalleryPage() {
             </h1>
             <h1 className="w-1/2 hidden sm:hidden lg:flex xl:flex">{data1}</h1>
           </div>
-          <Carousel
-            className="w-full max-w-xs"
-            plugins={[
-              Autoplay({
-                delay: 2000,
-              }),
-            ]}
+          {/* <Carousel
+            className="w-full max-w-xs"            
           >
             <CarouselContent>
               {Array.from({ length: 5 }).map((_, index) => (
@@ -143,7 +125,7 @@ export default function GalleryPage() {
             </CarouselContent>
             <CarouselPrevious />
             <CarouselNext />
-          </Carousel>
+          </Carousel> */}
         </div>
         <div className="w-full flex flex-row justify-between">
           <h1 className="w-1/3 hidden sm:hidden lg:flex xl:flex">

@@ -17,15 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <>
-      <head>
-        <meta
-          property="og:title"
-          content="Mario Molina - Steel Detailer"
-        ></meta>
-        <meta
-          property="og:description"
-          content="Discover excellence in structural design with steeldetailer.com.ar. Explore our Steel Detailer project gallery, where every detail comes to life. We share exclusive images of fabrication processes, an informative blog and process videos."
-        />
+      <head>        
         <meta property="og:url" content="https://steeldetailer.com.ar"></meta>
         <meta property="og:image" content="/logo.png" />
         <meta property="twitter:image" content="/logo.png" />

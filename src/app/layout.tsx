@@ -16,11 +16,11 @@ export default function RootLayout({
 }) {
   return (
     <>
-      {/* <head>        
+      <head>
         <meta property="og:url" content="https://steeldetailer.com.ar"></meta>
         <meta property="og:image" content="/logo.png" />
         <meta property="twitter:image" content="/logo.png" />
-      </head> */}
+      </head>
       <html lang="en" className="dark">
         <body className={mono.className}>{children}</body>
       </html>

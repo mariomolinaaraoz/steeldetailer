@@ -1,5 +1,7 @@
+import clsx from "clsx";
 import "./globals.css";
 import type { Metadata } from "next";
+import { Analytics } from '@vercel/analytics/react';
 import { Red_Hat_Mono } from "next/font/google";
 
 export const metadata: Metadata = {
@@ -22,7 +24,10 @@ export default function RootLayout({
         <meta property="twitter:image" content="/logo.png" />
       </head>
       <html lang="en" className="dark">
-        <body className={mono.className}>{children}</body>
+        <body className={mono.className}>
+          {children}
+          <Analytics />
+        </body>
       </html>
     </>
   );

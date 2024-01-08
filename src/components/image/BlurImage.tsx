@@ -3,7 +3,7 @@ import { useState } from "react";
 import { cn } from "../../lib/utils";
 
 import { Data } from "@/lib/utils";
-import ImageModal from './ImageModal';
+import ImageModal from './PDFModal';
 import DownloadButton from "@/components/buttons/downloadButton";
 
 export function BlurImage({ data }: { data: Data }) {
@@ -24,13 +24,14 @@ export function BlurImage({ data }: { data: Data }) {
 
   return (
     <section>
-      <div className="flex flex-col">
+      <div className="flex flex-col cursor-pointer">
         <Image
           src={data.imageSrc}
           alt={data.elemento}
           placeholder="empty"
           width={400}
           height={400}
+          loading="lazy"
           className={cn(
             "duration-700 ease-in-out group-hover:opacity-75 rounded-lg",
             isLoading

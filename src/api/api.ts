@@ -1,4 +1,5 @@
 // api.ts
+import { useEffect, useState } from 'react';
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
 const supabase = createClientComponentClient();
@@ -16,4 +17,22 @@ export const fetchTodos = async (text:string) => {
     console.error("Error fetching data from Supabase:");
     return [];
   }
+};
+
+export const useSupabaseData = (currentDataId: string | undefined) => {
+  const [todos, setTodos] = useState<any[]>([]);
+
+  useEffect(() => {
+    const getTodos = async () => {
+      if (currentDataId) {
+        console.log('currentData.ID= ' + currentDataId);
+        const data = await fetchTodos(currentDataId);
+        setTodos(data);
+      }
+    };
+
+    getTodos();
+  }, [currentDataId]);
+
+  return todos;
 };

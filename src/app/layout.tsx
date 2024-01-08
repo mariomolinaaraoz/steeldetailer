@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Analytics } from '@vercel/analytics/react';

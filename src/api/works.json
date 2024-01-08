@@ -1,0 +1,18 @@
+{
+    "1": {
+        "ID": "B",
+        "button": "35x60",
+        "descrip": "Estructura a un agua de 60mts de largo, por 35mts de ancho y 24mts de alto, con 5 entrepisos metálicos.",
+        "place": "3 Quebradas, Fiambalá. Catamarca, Argentina.",
+        "area": "205",
+        "sector": "B"
+    },
+    "0": {
+        "ID": "A",
+        "button": "60x60",
+        "descrip": "Estructura a dos agua de 60mts de largo, por 60mts de ancho y 15mts de alto.",
+        "place": "3 Quebradas, Fiambalá. Catamarca, Argentina.",
+        "area": "205",
+        "sector": "A"
+    }
+}

@@ -25,7 +25,7 @@ const Description: React.FC<DescriptionSectionProps> = ({ currentData }) => {
           </h1>
         </div>
         <div className="w-1/3">
-          <Carousel sector="A" />
+          <Carousel sector={currentData.sector} />
         </div>
       </div>
     </div>

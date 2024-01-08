@@ -35,8 +35,7 @@ const Carousel: React.FC<CarouselProps> = ({ sector }) => {
   return (
     <>
     <Slider {...settings} className="w-full aspect-video cursor-pointer">
-      {Array.from({ length: 5 }).map((_, index) => (
-        // Verifica si la variable 'sector' tiene un valor antes de cargar la imagen
+      {Array.from({ length: 5 }).map((_, index) => (        
         sector ? (
           <Image
             key={index}
@@ -51,6 +50,7 @@ const Carousel: React.FC<CarouselProps> = ({ sector }) => {
     </Slider>
     {isModalOpen && (      
       <IMGModal
+        sector={sector}        
         onClose={() => setIsModalOpen(false)}
       />
     )}

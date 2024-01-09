@@ -14,11 +14,23 @@ export default async function Footer() {
             {copyrightName.length && !copyrightName.endsWith('.') ? '.' : ''} All rights reserved.
           </p>
           <hr className="mx-4 hidden h-4 w-[1px] border-l border-background md:inline-block" />
-          <p className="hidden lg:block">Designed in Argentina </p>
+          <p className="hidden lg:block">Designed in{' '} 
+            <a 
+              href="https://www.argentina.gob.ar/" 
+              className="text-black dark:text-white hover:underline"
+              title="Developers Country"
+              >
+              Argentina              
+            </a>
+          </p>
           <p className="md:ml-auto">
             by{' '}
-            <a href="https://mariomolinaaraoz.com.ar" className="text-black dark:text-white">
-              ▲ Mario Molina
+            <a 
+              href="https://mariomolinaaraoz.com.ar" 
+              className="text-black dark:text-white hover:underline"
+              title="Sitio Oficial"
+            >
+              Mario Molina
             </a>
           </p>
         </div>

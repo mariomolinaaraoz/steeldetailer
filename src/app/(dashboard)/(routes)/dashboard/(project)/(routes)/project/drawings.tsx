@@ -1,15 +1,16 @@
 import React from 'react';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Suspense } from 'react';
 import { BlurImage } from '@/components/image/BlurImage';
 import { useSupabaseData } from '@/api/api';
 
 interface Props {
-  currentDataId: string | undefined;  
+  currentDataId: string | undefined;
+  setFilteredLength: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const Drawings: React.FC<Props> = ({ currentDataId }) => {
+const Drawings: React.FC<Props> = ({ currentDataId, setFilteredLength }) => {
   const supabaseData = useSupabaseData(currentDataId);
 
   // FILTRO////////////////////////////////////////////////////////////////
@@ -20,6 +21,10 @@ const Drawings: React.FC<Props> = ({ currentDataId }) => {
       data.plano.toLowerCase().includes(searchTerm.toLowerCase()) ||
       data.elemento.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  useEffect(() => {
+    setFilteredLength(filtered.length);
+  }, [filtered, setFilteredLength]);
 
   const handleSearchChange: React.ChangeEventHandler | undefined = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -32,10 +37,10 @@ const Drawings: React.FC<Props> = ({ currentDataId }) => {
     <Suspense fallback={<h2>Loading Drawings...</h2>}>
       <div
         id="subtitle"
-        className="px-6 pt-0 pb-5 w-full flex flex-row justify-between  sm:pt-0 lg:pt-10 xl:pt-10 sm:px-6 lg:px-20 xl:px-20"
+        className="px-6 w-full flex flex-row justify-between sm:px-6 lg:px-20 xl:px-20"
       >
         <h1 className="w-1/3 hidden sm:hidden lg:flex xl:flex">
-          Listados de planos:
+          <u>Listados de planos:</u>
         </h1>
         <div id="search" className="flex w-full sm:w-full lg:w-1/3 xl:w-1/3">
           <Input

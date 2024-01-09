@@ -4,7 +4,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-import { Home, LayoutDashboard, ImageIcon } from "lucide-react";
+import {
+  Home,
+  LayoutDashboard,
+  ImageIcon,
+  Linkedin,
+  YoutubeIcon,
+  Instagram,
+  InspectIcon,
+} from "lucide-react";
 import { usePathname } from "next/navigation";
 
 const routes = [
@@ -21,7 +29,7 @@ const routes = [
     color: "text-sky-500",
   },
   {
-    label: "Image",
+    label: "Images",
     icon: ImageIcon,
     href: "/dashboard/image",
     color: "text-pink-700",
@@ -39,7 +47,7 @@ export default function Sidebar() {
           className="flex items-center border-b border-b-foreground/10 py-2 pl-3 mb-2"
         >
           <div className="relative w-10 h-10 ml-1 mr-2">
-            <Image fill alt="Logo" src="/logo.png" loading="lazy"/>
+            <Image fill alt="Logo" src="/logo.png" loading="lazy" />
           </div>
           <div className="flex flex-col">
             <h1 className="text-xs p-0 m-0">Mario Molina</h1>
@@ -67,6 +75,37 @@ export default function Sidebar() {
             </Link>
           ))}
         </div>
+      </div>
+      <div className="py-4 flex justify-around border-t border-t-foreground/10 border-b border-b-foreground/10">
+        <a
+          href="https://www.argentina.gob.ar/"
+          className="text-black dark:text-white hover:underline"
+          title="Linkein"
+        >
+          <Linkedin className="h-5 w-5" />
+        </a>
+        <YoutubeIcon className="h-5 w-5" />
+        <Instagram className="h-5 w-5" />
+      </div>
+      <div className="flex justify-center pt-2 pb-4">
+        <h1 className="text-xs">
+          Desing in{" "}
+          <a
+            href="https://www.argentina.gob.ar/"
+            className="text-black dark:text-white hover:underline"
+            title="Argentina"
+            >
+            AR
+          </a>{" "}
+          by{" "}
+          <a
+            href="https://mariomolinaaraoz.com.ar"
+            className="text-black dark:text-white hover:underline"
+            title="Sitio Oficial"
+          >
+            Mario Molina
+          </a>
+        </h1>
       </div>
     </div>
   );

@@ -28,8 +28,8 @@ const MobileSidebar = () => {
 
   return (
     <Sheet>
-      <SheetTrigger className="w-full h-16 flex justify-between items-center border-b border-b-foreground/10 text-foreground">
-        <div className="pl-4 grid justify-items-start">
+      <SheetTrigger className="w-full h-16 flex justify-between items-center">
+        <div className="pl-4 hidden justify-items-start border-b border-b-foreground/10 text-foreground sm:grid lg:hidden xl:hidden">
           <h1 className="text-xs">Mario Molina</h1>
           <h2 className="text-md">Steel Detailer</h2>
         </div>

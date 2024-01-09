@@ -18,12 +18,12 @@ export default function IMGModal({
       >
         <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity flex items-end justify-center p-0 text-center sm:items-center sm:p-0">
           <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all w-5/6 max-w-screen-xl h-3/4 flex flex-grow flex-col">
-            <div className="bg-gray-800 px-12 pt-4 pb-4 flex-grow">
+            <div className="bg-gray-800 px-12 pt-3 pb-2 flex-grow">
             <Carousel sector={sector}/>
             </div>
             <div
               id="footer"
-              className="bg-gray-300 px-4 py-2 sm:flex sm:flex-row-reverse sm:px-6"
+              className="bg-gray-300 px-4 pt-1 pb-1 sm:flex sm:flex-row-reverse sm:px-6"
             >
               <Button
                 type="button"

@@ -13,7 +13,7 @@ export default function LandingLayout({
         <aside className="hidden h-full md:flex md:w-56 md:flex-col md:fixed md:inset-y-0 z-[80] bg-gray-900">
           <Sidebar />
         </aside>
-        <main className="md:pl-60 md:pr-4 sm:px-6  overflow-hidden">
+        <main className="md:pl-56">
           <MobileSidebar />
           {children}
         </main>

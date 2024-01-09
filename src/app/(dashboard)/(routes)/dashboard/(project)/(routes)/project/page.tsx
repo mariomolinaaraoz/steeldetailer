@@ -8,7 +8,6 @@ import Drawings from "./drawings";
 import Works from "./works";
 
 export default function GalleryPage() {
-  
   const [currentData, setCurrentData] = useState<WorkData[keyof WorkData]>({
     ID: "",
     button: "",
@@ -18,12 +17,12 @@ export default function GalleryPage() {
     sector: "",
   });
 
+  const [filteredLength, setFilteredLength] = useState<number>(0);
+
   return (
-    <>
-      <div
-        id="title"
-        className="px-4 py-6 grid justify-items-center w-full gap-12 sm:py-6 lg:py-10 xl:py-10"
-      >
+    <div className="flex flex-col gap-12">
+
+      <div id="title" className="grid justify-items-center w-full gap-14">
         <h1 className="text-2xl shadow-lg shadow-slate-50 lg:text-4xl xltext-4xl">
           Last Projects
         </h1>
@@ -37,7 +36,11 @@ export default function GalleryPage() {
 
       <Description currentData={currentData} />
 
-      <Drawings currentDataId={currentData.ID} />
-    </>
+      <Drawings currentDataId={currentData.ID} setFilteredLength={setFilteredLength}/>
+
+      <div className="flex justify-end bg-[#111827] px-4 pt-4 pb-4 border-t border-t-foreground/10">
+        <p className="text-xs">- Total Drawings [{filteredLength}] - </p>
+      </div>
+    </div>
   );
 }

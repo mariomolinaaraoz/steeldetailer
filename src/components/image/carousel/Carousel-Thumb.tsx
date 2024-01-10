@@ -42,8 +42,8 @@ const Carousel: React.FC<CarouselProps> = ({ sector }) => {
             key={index}
             src={`/${sector}/img${index + 1}.png`}          
             alt={`Carousel imagen ${index + 1}`}
-            width={400}
-            height={400}
+            width={854}
+            height={480}
             onClick={handleImageClick}          
           />
         ) : null

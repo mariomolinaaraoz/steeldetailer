@@ -7,7 +7,7 @@ import Description from "./description";
 import Drawings from "./drawings";
 import Works from "./works";
 
-export default function GalleryPage() {
+export default function WorksAndDrawings() {
   const [currentData, setCurrentData] = useState<WorkData[keyof WorkData]>({
     ID: "",
     button: "",

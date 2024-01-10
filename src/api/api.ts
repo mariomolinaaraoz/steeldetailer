@@ -36,3 +36,16 @@ export const useSupabaseData = (currentDataId: string | undefined) => {
 
   return todos;
 };
+
+/* List all files from bucket */
+export const listFilesFromBucket = async (bucket:string) => {
+  try {
+    const { data, error } = await supabase.storage.from(bucket).list();
+    if (error) throw new Error("No files found");
+    
+    return data || [];
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+};

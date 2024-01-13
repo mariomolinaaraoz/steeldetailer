@@ -10,8 +10,7 @@ import {
   ImageIcon,
   Linkedin,
   YoutubeIcon,
-  Instagram,
-  InspectIcon,
+  Instagram,  
 } from "lucide-react";
 import { usePathname } from "next/navigation";
 

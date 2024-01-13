@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import LoginButton from "../buttons/mobile-loginButton";
 import MenuButton from "../buttons/menuButton";
 import {
   Sheet,
@@ -27,8 +26,8 @@ const MobileSidebar = () => {
   }
 
   return (
-    <Sheet>
-      <SheetTrigger className="w-full h-16 flex justify-between items-center">
+    <Sheet >
+      <SheetTrigger className="grid sm:hidden lg:hidden xl:hidden w-full h-16 flex justify-between items-center">
         <div className="pl-4 hidden justify-items-start border-b border-b-foreground/10 text-foreground sm:grid lg:hidden xl:hidden">
           <h1 className="text-xs">Mario Molina</h1>
           <h2 className="text-md">Steel Detailer</h2>

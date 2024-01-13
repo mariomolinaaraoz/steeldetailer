@@ -24,8 +24,7 @@ export const useSupabaseData = (currentDataId: string | undefined) => {
 
   useEffect(() => {
     const getTodos = async () => {
-      if (currentDataId) {
-        console.log('currentData.ID= ' + currentDataId);
+      if (currentDataId) {        
         const data = await fetchTodos(currentDataId);
         setTodos(data);
       }
@@ -33,14 +32,13 @@ export const useSupabaseData = (currentDataId: string | undefined) => {
 
     getTodos();
   }, [currentDataId]);
-
   return todos;
 };
 
 /* List all files from bucket */
-export const listFilesFromBucket = async (bucket:string) => {
+export const listFilesFromBucket = async (bucket:string, folder:string) => {
   try {
-    const { data, error } = await supabase.storage.from(bucket).list();
+    const { data, error } = await supabase.storage.from(bucket).list('gallery');
     if (error) throw new Error("No files found");
     
     return data || [];

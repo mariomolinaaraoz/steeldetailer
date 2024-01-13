@@ -1,6 +1,5 @@
-import React from "react";
-import Carousel from "@/components/image/carousel/Carousel-Thumb";
 import { WorkData } from "./works";
+import Carousel from "@/components/image/carousel/Carousel-Thumb";
 
 interface DescriptionSectionProps {
   currentData: WorkData[keyof WorkData];

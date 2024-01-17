@@ -35,6 +35,8 @@ export const useSupabaseData = (currentDataId: string | undefined) => {
   return todos;
 };
 
+/******************************************************************************************************* */
+
 /* List all files from bucket */
 export const listFilesFromBucket = async (bucket:string, folder:string) => {
   try {
@@ -46,4 +48,33 @@ export const listFilesFromBucket = async (bucket:string, folder:string) => {
     console.error(error);
     return [];
   }
+};
+
+export const fetchPhotos = async () => {
+  try {
+    const { data } = await supabase
+      .from("image_upload")
+      .select("*")
+      .order("id", { ascending: false })
+      .eq("status","TRUE");
+
+    return data || [];
+  } catch (error) {
+    console.error("Error fetching data from Supabase:");
+    return [];
+  }
+};
+
+export const useSupabaseGallery = () => {
+  const [photos, setPhotos] = useState<any[]>([]);
+
+  useEffect(() => {
+    const getPhotos = async () => {
+        const data = await fetchPhotos();
+        setPhotos(data);
+    };
+
+    getPhotos();
+  }, []);
+  return photos;
 };

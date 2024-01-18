@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const dynamic = "force-dynamic";
 
 export default async function Hero() {
@@ -10,7 +12,11 @@ export default async function Hero() {
             BUILDING TOGETHER
           </h1>
           <div className="bg-foreground py-3 px-6 rounded-lg font-mono text-xs sm:text-sm text-background">
-            Get started know our <strong>Projects</strong>
+            <Link
+              href="/dashboard/project"              
+            >              
+            Get started know our <strong><u>Projects</u></strong>
+            </Link>
           </div>
         </div>
 

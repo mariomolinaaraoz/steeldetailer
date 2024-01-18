@@ -4,7 +4,6 @@ import { useState } from "react";
 
 import TitleSection from "../../../components/title";
 import ViewGrid from "./components/viewGrid";
-import View from "./components/view";
 
 const Projects = () => {
   const [filteredLength, setFilteredLength] = useState<number>(0);

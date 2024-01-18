@@ -2,13 +2,13 @@ import { buttonVariants } from "@/components/ui/button";
 
 import Link from "next/link";
 
-export default function ProjectButton() {
+export default function GalleryButton() {
   return (
     <Link
-      href="/dashboard/project"
+      href="/dashboard/gallery"
       className={buttonVariants({ variant: "link" })}
     >
-      Projects
+      Gallery
     </Link>
   );
 }

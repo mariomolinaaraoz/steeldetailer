@@ -37,13 +37,13 @@ const ViewGrid: React.FC<Props> = ({ setFilteredLength }) => {
   // FILTRO////////////////////////////////////////////////////////////////
 
   return (
-    <Suspense fallback={<h2>Loading Drawings...</h2>}>
+    <Suspense fallback={<h2>Loading Photos...</h2>}>
       <div
         id="subtitle"
         className="px-6 w-full flex flex-row justify-between sm:px-6 lg:px-20 xl:px-20"
       >
         <h1 className="w-1/3 hidden sm:hidden lg:flex xl:flex">
-          <u>List of drawings:</u>
+          <u>List of photos:</u>
         </h1>
         <div id="search" className="flex w-full sm:w-full lg:w-1/3 xl:w-1/3">
           <Input

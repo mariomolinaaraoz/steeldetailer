@@ -30,7 +30,7 @@ const routes = [
   {
     label: "Images",
     icon: ImageIcon,
-    href: "/dashboard/image",
+    href: "/dashboard/gallery",
     color: "text-pink-700",
   },
 ];

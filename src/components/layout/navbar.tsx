@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Logo from "@/components/icons/logo";
 import ProjectButton from "@/components/buttons/projectButton";
+import GalleryButton from "@/components/buttons/galleryButton";
 // import LoginButton from "@/components/buttons/loginButton";
 // import LogoutButton from "@/components/buttons/logoutButton";
 import { Search } from "lucide-react";
@@ -33,6 +34,7 @@ export default async function NavbarHero() {
             {/* <Input type="email" placeholder="Search..." />
             <Button type="submit" variant="outline"><Search className="h-5 w-5"/></Button> */}
             <ProjectButton/>
+            <GalleryButton/>
             <div>
               {/* {user ? (
                 <div className="flex items-center gap-4">

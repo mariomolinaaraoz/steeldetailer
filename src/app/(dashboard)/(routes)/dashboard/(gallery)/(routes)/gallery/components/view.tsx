@@ -12,8 +12,10 @@ type Props = {
 };
 
 const View = ({ index, bucket, folder, item, priority }: Props) => {
+
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
   const storage = process.env.NEXT_PUBLIC_SUPABASE_STORAGE || "";
+
   return (
     <div className="relative">
       <Image

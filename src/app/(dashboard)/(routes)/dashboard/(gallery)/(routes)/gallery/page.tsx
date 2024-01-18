@@ -18,7 +18,7 @@ const Projects = () => {
       <ViewGrid currentDataId="B" setFilteredLength={setFilteredLength} />
 
       <div className="flex justify-end bg-[#111827] px-4 pt-4 pb-4 border-t border-t-foreground/10">
-        <p className="text-xs">- Total Images [2] - </p>
+        <p className="text-xs">- Total Images [{filteredLength}] - </p>
       </div>
     </div>
   );

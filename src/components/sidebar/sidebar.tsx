@@ -8,6 +8,7 @@ import {
   Home,
   LayoutDashboard,
   ImageIcon,
+  TableIcon,
   Linkedin,
   YoutubeIcon,
   Instagram,  
@@ -32,6 +33,12 @@ const routes = [
     icon: ImageIcon,
     href: "/dashboard/gallery",
     color: "text-pink-700",
+  },
+  {
+    label: "Tables",
+    icon: TableIcon,
+    href: "/dashboard/table",
+    color: "text-green-500",
   },
 ];
 

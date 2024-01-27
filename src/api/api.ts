@@ -1,4 +1,3 @@
-// api.ts
 import { useEffect, useState } from 'react';
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
@@ -37,19 +36,6 @@ export const useSupabaseData = (currentDataId: string | undefined) => {
 
 /******************************************************************************************************* */
 
-/* List all files from bucket */
-export const listFilesFromBucket = async (bucket:string, folder:string) => {
-  try {
-    const { data, error } = await supabase.storage.from(bucket).list('gallery');
-    if (error) throw new Error("No files found");
-    
-    return data || [];
-  } catch (error) {
-    console.error(error);
-    return [];
-  }
-};
-
 export const fetchPhotos = async () => {
   try {
     const { data } = await supabase
@@ -77,4 +63,34 @@ export const useSupabaseGallery = () => {
     getPhotos();
   }, []);
   return photos;
+};
+
+/******************************************************************************************************* */
+
+export const fetchUpn = async () => {
+  try {
+    const { data } = await supabase
+      .from("upn")
+      .select("*")
+      .order("id", { ascending: true })      
+
+    return data || [];
+  } catch (error) {
+    console.error("Error fetching data from Supabase:");
+    return [];
+  }
+};
+
+export const useSupabaseUpn = () => {
+  const [upn, setUpn] = useState<any[]>([]);
+
+  useEffect(() => {
+    const getUpn = async () => {
+        const data = await fetchUpn();
+        setUpn(data);
+    };
+
+    getUpn();
+  }, []);
+  return upn;
 };

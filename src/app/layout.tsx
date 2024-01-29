@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <>
       <head>
-        <meta property="og:url" content="https://steeldetailer.com.ar"></meta>
+        <meta property="og:url" content="https://www.steeldetailer.com.ar/dashboard/project"></meta>
         <meta property="og:image" content="/logo.png" />
         <meta property="twitter:image" content="/logo.png" />
         <link

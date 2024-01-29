@@ -55,10 +55,7 @@ export default function Sidebar() {
           <div className="relative w-10 h-10 ml-1 mr-2">
             <Image fill alt="Logo" src="/logo.png" loading="lazy" />
           </div>
-          <div className="flex flex-col">
-            <h1 className="text-xs p-0 m-0">Mario Molina</h1>
-            <h2 className="text-md p-0 m-0">Steel detailer</h2>
-          </div>
+            <h2 className="text-md p-0 m-0">Steel detailer</h2>          
         </Link>
       </div>
       <div className="bg-[#111827] px-3 py-2 flex-1">

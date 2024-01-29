@@ -5,7 +5,7 @@ import { Red_Hat_Mono } from "next/font/google";
 
 export const metadata: Metadata = {
   title: "Arte en Acero: Galería de Proyectos | Explora Nuestro Trabajo",
-  description:"Discover excellence in structural design with steeldetailer.com.ar. Explore our Steel Detailer project gallery, where every detail comes to life. We share exclusive images of fabrication processes, an informative blog and process videos.",
+  description:"Descubre la excelencia en acero a través de nuestra galería de proyectos, tablas informativas y detalles del alcance de un steel detailer.",
 };
 
 const mono = Red_Hat_Mono({ subsets: ["latin"] });

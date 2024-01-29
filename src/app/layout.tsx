@@ -26,7 +26,12 @@ export default function RootLayout({
           href="https://www.steeldetailer.com.ar/dashboard/project"
           key="canonical"
         />
-        <meta name="keywords" content="Steel, Detailer, Projects, Gallery, Tablas, Argentina, Planos, Construcción, Medidas, Peso" />
+        <meta name="keywords" 
+          content="
+          Steel, Detailer, Projects, Gallery, Tablas, Argentina, Planos, Construcción, Medidas, Peso,
+          Medidas hierro angulo, Medidas hierro cuadrado, Medidas hierro redondo, Medidas hierro cuadrado, Medidas hierro te, Medidas planchuelas de hierro, Medidas Chapa Laminada Caliente, Medidas Chapa Laminada Fria, Medidas Chapa Galvanizada, Medidas Chapa Semillada, Medidas Perfil Doble Tee (IPN), Medidas Perfil Americano (IPA), Medidas Perfil Europeo (IPE), Medidas Perfil Grey (HEB), Medidas Perfil Normal U (UPN), Medidas Perfil U, Americano (UPA), Medidas Perfil C y U, Medidas Metal Desplegado Pesado, Medidas Tubos Estructurales, Tabla Resistencia Perfil IPN
+          "
+        />
       </head>
       <html lang="en" className="dark">
         <body className={mono.className}>

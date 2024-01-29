@@ -21,6 +21,11 @@ export default function RootLayout({
         <meta property="og:url" content="https://steeldetailer.com.ar"></meta>
         <meta property="og:image" content="/logo.png" />
         <meta property="twitter:image" content="/logo.png" />
+        <link
+          rel="canonical"
+          href="https://www.steeldetailer.com.ar/dashboard/project"
+          key="canonical"
+        />
       </head>
       <html lang="en" className="dark">
         <body className={mono.className}>

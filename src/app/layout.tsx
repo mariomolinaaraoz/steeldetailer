@@ -26,6 +26,7 @@ export default function RootLayout({
           href="https://www.steeldetailer.com.ar/dashboard/project"
           key="canonical"
         />
+        <meta name="keywords" content="Steel, Detailer, Projects, Gallery, Tablas, Argentina, Planos, Construcción" />
       </head>
       <html lang="en" className="dark">
         <body className={mono.className}>

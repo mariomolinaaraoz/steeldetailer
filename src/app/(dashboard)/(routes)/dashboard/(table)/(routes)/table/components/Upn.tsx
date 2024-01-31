@@ -56,8 +56,8 @@ const Upn: React.FC<Props> = ({ setFilteredLength }) => {
   };
   // FILTRO////////////////////////////////////////////////////////////////
 
-  const [selectedHeader, setSelectedHeader] = useState("upn");
-
+  // TABLE HEADERS////////////////////////////////////////////////////////////////  
+  const [selectedHeader, setSelectedHeader] = useState("upn");  
   const columnHeadersList: ColumnHeadersList = {
     upn: [
       { key: "UPN", label: "UPN" },
@@ -79,17 +79,19 @@ const Upn: React.FC<Props> = ({ setFilteredLength }) => {
       { key: "UPN", label: "UPN" },
     ],
     chapalisaLC: [
-      { key: "nA", label: "n A" },
-      { key: "nB", label: "n B" },
+      { key: "Cal.", label: "Cal." },
+      { key: "Esp. mm.", label: "Esp. mm." },
+      { key: "Peso Kgs/mts", label: "Peso Kgs/mts" },
     ],
   };
-
+  
   const handleHeaderChange = (selected: string) => {
     setSelectedHeader(selected);
   };
-
+  
   const columnHeaders = columnHeadersList[selectedHeader];
-
+  // TABLE HEADERS////////////////////////////////////////////////////////////////
+  
   return (
     <Suspense fallback={<h2>Loading UPN...</h2>}>
       <div className="w-full flex flex-row justify-between sm:px-6 lg:px-20 xl:px-20">

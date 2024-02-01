@@ -121,7 +121,7 @@ const Upn: React.FC<Props> = ({ setFilteredLength }) => {
     setColumnHeaderss(columnHeadersList[selectedHeader]);
   
     // Fetch data from the selected table
-    const FetchData = async () => {
+    const usefetchData = async () => {
       try {
         const data = await useSupabaseTables(selectedHeader);
         setSupabaseData(data.data || []);  // Accede a la propiedad 'data' de la respuesta y maneja el caso de 'undefined'
@@ -131,7 +131,7 @@ const Upn: React.FC<Props> = ({ setFilteredLength }) => {
       }
     };
   
-    FetchData();
+    usefetchData();
   
   }, [selectedHeader]);
 

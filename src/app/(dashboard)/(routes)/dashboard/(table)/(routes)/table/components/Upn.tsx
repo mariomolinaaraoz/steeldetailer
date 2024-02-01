@@ -40,6 +40,15 @@ const Upn: React.FC<Props> = ({ setFilteredLength }) => {
   const [filteredData, setFilteredData] = useState<any[]>([]);
   const [supabaseData, setSupabaseData] = useState<any[]>([]);
   const columnHeadersList: ColumnHeadersList = {
+    perfilW: [
+      { key: "W", label: "W" },
+      { key: "lbs/ft", label: "lbs/ft" },
+      { key: "h", label: "h" },
+      { key: "b", label: "b" },
+      { key: "tw", label: "tw" },
+      { key: "tf", label: "tf" },
+      { key: "W", label: "W" },
+    ],
     upn: [
       { key: "UPN", label: "UPN" },
       { key: "h", label: "h" },
@@ -166,6 +175,7 @@ const Upn: React.FC<Props> = ({ setFilteredLength }) => {
         </div>
       </div>
       <div className="w-full flex flex-row gap-4 justify-around sm:px-6 lg:px-20 xl:px-20">
+        <Button variant="secondary" onClick={() => handleHeaderChange("perfilW")}>Perfil W</Button>
         <Button variant="secondary" onClick={() => handleHeaderChange("upn")}>UPN</Button>
         <Button variant="secondary" onClick={() => handleHeaderChange("pnl")}>PNL</Button>
         <Button variant="secondary" onClick={() => handleHeaderChange("chapaLC")}>Chapa LC</Button>

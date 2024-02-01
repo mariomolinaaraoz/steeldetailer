@@ -67,10 +67,10 @@ export const useSupabaseGallery = () => {
 
 /******************************************************************************************************* */
 
-export const fetchUpn = async () => {
+export const fetchTables = async (text:string) => {
   try {
     const { data } = await supabase
-      .from("upn")
+      .from(text)
       .select("*")
       .order("id", { ascending: true })      
 
@@ -81,16 +81,6 @@ export const fetchUpn = async () => {
   }
 };
 
-export const useSupabaseUpn = () => {
-  const [upn, setUpn] = useState<any[]>([]);
-
-  useEffect(() => {
-    const getUpn = async () => {
-        const data = await fetchUpn();
-        setUpn(data);
-    };
-
-    getUpn();
-  }, []);
-  return upn;
-};
+export async function useSupabaseTables(text:string) {    
+  return await supabase.from(text).select("*").order("id", { ascending: true }) ;
+}

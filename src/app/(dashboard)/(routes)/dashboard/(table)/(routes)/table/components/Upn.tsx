@@ -16,7 +16,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-import { useSupabaseUpn } from "@/api/api";
+import { useSupabaseTables } from "@/api/api";
 
 interface Props {
   setFilteredLength: React.Dispatch<React.SetStateAction<number>>;
@@ -32,7 +32,68 @@ interface ColumnHeadersList {
 }
 
 const Upn: React.FC<Props> = ({ setFilteredLength }) => {
-  const supabaseData = useSupabaseUpn();
+  
+  
+  // TABLE HEADERS/////////////////////////////////////////////////////////
+  const [selectedHeader, setSelectedHeader] = useState("upn");
+  const [columnHeaderss, setColumnHeaderss] = useState<ColumnHeader[]>([]);  
+  const [filteredData, setFilteredData] = useState<any[]>([]);
+  const [supabaseData, setSupabaseData] = useState<any[]>([]);
+  const columnHeadersList: ColumnHeadersList = {
+    upn: [
+      { key: "UPN", label: "UPN" },
+      { key: "h", label: "h" },
+      { key: "b", label: "b" },
+      { key: "e", label: "e" },
+      { key: "e1", label: "e1=r" },
+      { key: "r1", label: "r1" },
+      { key: "h1", label: "h1" },
+      { key: "a", label: "A(cm2)" },
+      { key: "p", label: "P(Kg/m)" },
+      { key: "Ix", label: "Ix(cm4)" },
+      { key: "Wx", label: "Wx(cm3)" },
+      { key: "ix", label: "ix(cm)" },
+      { key: "Iy", label: "Iy(cm4)" },
+      { key: "Wy", label: "Wy(cm3)" },
+      { key: "iy", label: "iy(cm)" },
+      { key: "m2m", label: "m2/m" },
+      { key: "UPN", label: "UPN" },
+    ],
+    chapaLC: [
+      { key: "Cal.", label: "Cal." },
+      { key: "Esp. mm.", label: "Esp. mm." },
+      { key: "Peso Kgs/mts", label: "Peso Kgs/mts" },
+      { key: "Cal.", label: "Cal." },
+    ],
+    perfilC: [
+      { key: "ht", label: "ht" },
+      { key: "bt", label: "bt" },
+      { key: "dt", label: "dt" },
+      { key: "t=r", label: "t=r" },
+      { key: "a", label: "a" },
+      { key: "g", label: "g" },
+      { key: "Jy", label: "Jy" },
+      { key: "Wy", label: "Wy" },
+      { key: "iy", label: "iy" },
+      { key: "Jy", label: "Jy" },
+      { key: "Wz1", label: "Wz1" },
+      { key: "Wz2", label: "Wz2" },
+      { key: "iz", label: "iz" },
+      { key: "yg", label: "yg" },
+      { key: "yc", label: "yc" },
+      { key: "Jt", label: "Jt" },
+      { key: "Cw", label: "Cw" },
+      { key: "ht", label: "ht" },
+    ],
+  };
+  
+  const handleHeaderChange = (selected: string) => {
+    setSelectedHeader(selected);
+    setColumnHeaderss(columnHeadersList[selected]);
+  };
+  
+  const columnHeaders = columnHeadersList[selectedHeader];
+  // TABLE HEADERS/////////////////////////////////////////////////////////  
 
   // FILTRO////////////////////////////////////////////////////////////////
   const [searchTerm, setSearchTerm] = useState("");
@@ -56,42 +117,24 @@ const Upn: React.FC<Props> = ({ setFilteredLength }) => {
   };
   // FILTRO////////////////////////////////////////////////////////////////
 
-  // TABLE HEADERS////////////////////////////////////////////////////////////////  
-  const [selectedHeader, setSelectedHeader] = useState("upn");  
-  const columnHeadersList: ColumnHeadersList = {
-    upn: [
-      { key: "UPN", label: "UPN" },
-      { key: "h", label: "h" },
-      { key: "b", label: "b" },
-      { key: "e", label: "e" },
-      { key: "e1", label: "e1=r" },
-      { key: "r1", label: "r1" },
-      { key: "h1", label: "h1" },
-      { key: "a", label: "A(cm2)" },
-      { key: "p", label: "P(Kg/m)" },
-      { key: "Ix", label: "Ix(cm4)" },
-      { key: "Wx", label: "Wx(cm3)" },
-      { key: "ix", label: "ix(cm)" },
-      { key: "Iy", label: "Iy(cm4)" },
-      { key: "Wy", label: "Wy(cm3)" },
-      { key: "iy", label: "iy(cm)" },
-      { key: "m2m", label: "m2/m" },
-      { key: "UPN", label: "UPN" },
-    ],
-    chapalisaLC: [
-      { key: "Cal.", label: "Cal." },
-      { key: "Esp. mm.", label: "Esp. mm." },
-      { key: "Peso Kgs/mts", label: "Peso Kgs/mts" },
-    ],
-  };
+  useEffect(() => {
+    setColumnHeaderss(columnHeadersList[selectedHeader]);
   
-  const handleHeaderChange = (selected: string) => {
-    setSelectedHeader(selected);
-  };
+    // Fetch data from the selected table
+    const fetchData = async () => {
+      try {
+        const data = await useSupabaseTables(selectedHeader);
+        setSupabaseData(data.data || []);  // Accede a la propiedad 'data' de la respuesta y maneja el caso de 'undefined'
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        // Manejar el error según sea necesario
+      }
+    };
   
-  const columnHeaders = columnHeadersList[selectedHeader];
-  // TABLE HEADERS////////////////////////////////////////////////////////////////
+    fetchData();
   
+  }, [selectedHeader]);
+
   return (
     <Suspense fallback={<h2>Loading UPN...</h2>}>
       <div className="w-full flex flex-row justify-between sm:px-6 lg:px-20 xl:px-20">
@@ -109,12 +152,8 @@ const Upn: React.FC<Props> = ({ setFilteredLength }) => {
       <div className="w-full flex flex-row gap-4 justify-around sm:px-6 lg:px-20 xl:px-20">
         <Button variant="secondary" onClick={() => handleHeaderChange("upn")}>UPN</Button>
         <Button variant="secondary">PNL</Button>
-        <Button variant="secondary">Perfil C</Button>
-        <Button variant="secondary" onClick={() => handleHeaderChange("chapalisaLC")}>Chapa Lisa</Button>
-        <Button variant="secondary">UPN</Button>
-        <Button variant="secondary">PNL</Button>
-        <Button variant="secondary">Perfil C</Button>
-        <Button variant="secondary">Chapa Lisa</Button>
+        <Button variant="secondary" onClick={() => handleHeaderChange("chapaLC")}>Chapa LC</Button>
+        <Button variant="secondary" onClick={() => handleHeaderChange("perfilC")}>Perfil C</Button>
       </div>
 
       <div className="flex flex-col-reverse justify-center sm:flex-col-reverse lg:flex-row xl:flex-row">
@@ -123,7 +162,7 @@ const Upn: React.FC<Props> = ({ setFilteredLength }) => {
             <TableHeader>
               <TableRow>
                 {columnHeaders.map((header, index) => (
-                  <TableHead key={index}>{header.label}</TableHead>
+                  <TableHead key={index} className="text-center">{header.label}</TableHead>
                 ))}
               </TableRow>
             </TableHeader>
@@ -132,7 +171,7 @@ const Upn: React.FC<Props> = ({ setFilteredLength }) => {
                 <TableRow key={index}>
                   <TableCell
                     key={`repeat-${index}`}
-                    className="w-fit px-2 text-right font-semibold tracking-widest"
+                    className="w-fit px-2 text-right font-bold tracking-widest"
                   >
                     {data[Object.keys(data)[1]]}
                   </TableCell>
@@ -145,7 +184,7 @@ const Upn: React.FC<Props> = ({ setFilteredLength }) => {
                     ))}
                   <TableCell
                     key={`repeat-${index}`}
-                    className="w-fit px-2 text-right font-semibold tracking-widest"
+                    className="w-fit px-2 text-right font-bold tracking-widest"
                   >
                     {data[Object.keys(data)[1]]}
                   </TableCell>
@@ -178,5 +217,4 @@ const Upn: React.FC<Props> = ({ setFilteredLength }) => {
     </Suspense>
   );
 };
-
 export default Upn;

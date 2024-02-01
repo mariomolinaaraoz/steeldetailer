@@ -59,6 +59,22 @@ const Upn: React.FC<Props> = ({ setFilteredLength }) => {
       { key: "m2m", label: "m2/m" },
       { key: "UPN", label: "UPN" },
     ],
+    pnl: [
+      { key: "L", label: "L" },
+      { key: "b", label: "e" },
+      { key: "b", label: "b" },
+      { key: "r", label: "r" },
+      { key: "r1", label: "r1" },
+      { key: "c(cm)", label: "c(cm)" },
+      { key: "A(cm2)", label: "A(cm2)" },
+      { key: "P(Kg/m)", label: "P(Kg/m)" },
+      { key: "Ix=Iy(cm4)", label: "Ix=Iy(cm4)" },
+      { key: "Wx=Wy(cm3)", label: "Wx=Wy(cm3)" },
+      { key: "ix=iy(cm)", label: "ix=iy(cm)" },
+      { key: "Ixy(cm4)", label: "Ixy(cm4)" },
+      { key: "m2/m", label: "m2/m" },      
+      { key: "L", label: "L" },
+    ],
     chapaLC: [
       { key: "Cal.", label: "Cal." },
       { key: "Esp. mm.", label: "Esp. mm." },
@@ -151,7 +167,7 @@ const Upn: React.FC<Props> = ({ setFilteredLength }) => {
       </div>
       <div className="w-full flex flex-row gap-4 justify-around sm:px-6 lg:px-20 xl:px-20">
         <Button variant="secondary" onClick={() => handleHeaderChange("upn")}>UPN</Button>
-        <Button variant="secondary">PNL</Button>
+        <Button variant="secondary" onClick={() => handleHeaderChange("pnl")}>PNL</Button>
         <Button variant="secondary" onClick={() => handleHeaderChange("chapaLC")}>Chapa LC</Button>
         <Button variant="secondary" onClick={() => handleHeaderChange("perfilC")}>Perfil C</Button>
       </div>

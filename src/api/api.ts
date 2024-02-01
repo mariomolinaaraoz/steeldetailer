@@ -81,6 +81,6 @@ export const fetchTables = async (text:string) => {
   }
 };
 
-export async function useSupabaseTables(text:string) {    
+export async function UuseSupabaseTables(text:string) {    
   return await supabase.from(text).select("*").order("id", { ascending: true }) ;
 }

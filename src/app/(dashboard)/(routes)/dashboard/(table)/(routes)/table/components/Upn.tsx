@@ -16,7 +16,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-import { useSupabaseTables } from "@/api/api";
+import { UuseSupabaseTables } from "@/api/api";
 
 interface Props {
   setFilteredLength: React.Dispatch<React.SetStateAction<number>>;
@@ -123,7 +123,7 @@ const Upn: React.FC<Props> = ({ setFilteredLength }) => {
     // Fetch data from the selected table
     const usefetchData = async () => {
       try {
-        const data = await useSupabaseTables(selectedHeader);
+        const data = await UuseSupabaseTables(selectedHeader);
         setSupabaseData(data.data || []);  // Accede a la propiedad 'data' de la respuesta y maneja el caso de 'undefined'
       } catch (error) {
         console.error("Error fetching data:", error);

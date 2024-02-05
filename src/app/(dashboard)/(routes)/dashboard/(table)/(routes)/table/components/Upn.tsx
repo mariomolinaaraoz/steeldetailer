@@ -32,11 +32,9 @@ interface ColumnHeadersList {
 }
 
 const Upn: React.FC<Props> = ({ setFilteredLength }) => {
-  
-  
   // TABLE HEADERS/////////////////////////////////////////////////////////
   const [selectedHeader, setSelectedHeader] = useState("upn");
-  const [columnHeaderss, setColumnHeaderss] = useState<ColumnHeader[]>([]);  
+  const [columnHeaderss, setColumnHeaderss] = useState<ColumnHeader[]>([]);
   const [filteredData, setFilteredData] = useState<any[]>([]);
   const [supabaseData, setSupabaseData] = useState<any[]>([]);
   const columnHeadersList: ColumnHeadersList = {
@@ -81,7 +79,7 @@ const Upn: React.FC<Props> = ({ setFilteredLength }) => {
       { key: "Wx=Wy(cm3)", label: "Wx=Wy(cm3)" },
       { key: "ix=iy(cm)", label: "ix=iy(cm)" },
       { key: "Ixy(cm4)", label: "Ixy(cm4)" },
-      { key: "m2/m", label: "m2/m" },      
+      { key: "m2/m", label: "m2/m" },
       { key: "L", label: "L" },
     ],
     chapaLC: [
@@ -111,14 +109,14 @@ const Upn: React.FC<Props> = ({ setFilteredLength }) => {
       { key: "ht", label: "ht" },
     ],
   };
-  
+
   const handleHeaderChange = (selected: string) => {
     setSelectedHeader(selected);
     setColumnHeaderss(columnHeadersList[selected]);
   };
-  
+
   const columnHeaders = columnHeadersList[selectedHeader];
-  // TABLE HEADERS/////////////////////////////////////////////////////////  
+  // TABLE HEADERS/////////////////////////////////////////////////////////
 
   // FILTRO////////////////////////////////////////////////////////////////
   const [searchTerm, setSearchTerm] = useState("");
@@ -144,20 +142,19 @@ const Upn: React.FC<Props> = ({ setFilteredLength }) => {
 
   useEffect(() => {
     setColumnHeaderss(columnHeadersList[selectedHeader]);
-  
+
     // Fetch data from the selected table
     const usefetchData = async () => {
       try {
         const data = await UuseSupabaseTables(selectedHeader);
-        setSupabaseData(data.data || []);  // Accede a la propiedad 'data' de la respuesta y maneja el caso de 'undefined'
+        setSupabaseData(data.data || []); // Accede a la propiedad 'data' de la respuesta y maneja el caso de 'undefined'
       } catch (error) {
         console.error("Error fetching data:", error);
         // Manejar el error según sea necesario
       }
     };
-  
+
     usefetchData();
-  
   }, [selectedHeader]);
 
   return (
@@ -175,12 +172,39 @@ const Upn: React.FC<Props> = ({ setFilteredLength }) => {
         </div>
       </div>
       <div className="w-full flex flex-row gap-4 justify-around sm:px-6 lg:px-20 xl:px-20">
-        <Button variant="secondary" onClick={() => handleHeaderChange("perfilW")}>Perfil W</Button>
-        <Button variant="secondary" onClick={() => handleHeaderChange("upn")}>UPN</Button>
-        <Button variant="secondary" onClick={() => handleHeaderChange("pnl")}>PNL</Button>
-        <Button variant="secondary" onClick={() => handleHeaderChange("chapaLC")}>Chapa LC</Button>
-        <Button variant="secondary" onClick={() => handleHeaderChange("perfilC")}>Perfil C</Button>
+        <Button
+          variant="secondary"
+          onClick={() => handleHeaderChange("perfilW")}
+        >
+          Perfil W
+        </Button>
+        <Button variant="secondary" onClick={() => handleHeaderChange("upn")}>
+          UPN
+        </Button>
+        <Button variant="secondary" onClick={() => handleHeaderChange("pnl")}>
+          PNL
+        </Button>
+        <Button
+          variant="secondary"
+          onClick={() => handleHeaderChange("chapaLC")}
+        >
+          Chapa LC
+        </Button>
+        <Button
+          variant="secondary"
+          onClick={() => handleHeaderChange("perfilC")}
+        >
+          Perfil C
+        </Button>
       </div>
+      <article className="flex flex-col gap-8 justify-center sm:px-6 lg:px-20 xl:px-20">
+        <h1 className="text-2xl text-center font-semibold tracking-widest">
+          <u>Perfil UPN</u>
+        </h1>
+        <p className="text-wrap">
+          Es un perfil estructural caracterizado por su forma en «U». Sus alas exteriores son perpendiculares al alma y presentan aristas vivas. En el interior, sus alas tienen una inclinación del 8% decreciente hacia el exterior. La unión entre las caras interiores y el alma presenta aristas redondeadas.
+        </p>
+      </article>
 
       <div className="flex flex-col-reverse justify-center sm:flex-col-reverse lg:flex-row xl:flex-row">
         <div className="w-full sm:w-full lg:w-2/3 xl:w-2/3">
@@ -188,7 +212,9 @@ const Upn: React.FC<Props> = ({ setFilteredLength }) => {
             <TableHeader>
               <TableRow>
                 {columnHeaders.map((header, index) => (
-                  <TableHead key={index} className="text-center">{header.label}</TableHead>
+                  <TableHead key={index} className="text-center">
+                    {header.label}
+                  </TableHead>
                 ))}
               </TableRow>
             </TableHeader>

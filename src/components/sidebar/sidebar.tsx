@@ -87,8 +87,8 @@ export default function Sidebar() {
         >
           <Linkedin className="h-5 w-5" />
         </a>
-        <YoutubeIcon className="h-5 w-5" />
-        <Instagram className="h-5 w-5" />
+        {/* <YoutubeIcon className="h-5 w-5" />
+        <Instagram className="h-5 w-5" /> */}
       </div>
       <div className="flex justify-center pt-2 pb-4">
         <h1 className="text-xs">

@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 import TitleSection from "../../../components/title";
-import Upn from "./components/Upn";
+import Tablesperfil from "./components/tablesperfil";
 
 const Tables = () => {
   const [filteredLength, setFilteredLength] = useState<number>(0);
@@ -15,10 +15,10 @@ const Tables = () => {
         subtitle="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
       />
 
-      <Upn setFilteredLength={setFilteredLength} />
+      <Tablesperfil setFilteredLength={setFilteredLength} />
 
       <div className="flex justify-end bg-[#111827] px-4 pt-4 pb-4 border-t border-t-foreground/10">
-        <p className="text-xs">- Total Images [{filteredLength}] - </p>
+        <p className="text-xs">- List [ {filteredLength} ] - </p>
       </div>
     </div>
   );

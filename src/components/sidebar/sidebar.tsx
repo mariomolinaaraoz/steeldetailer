@@ -81,7 +81,7 @@ export default function Sidebar() {
       </div>
       <div className="py-4 flex justify-around border-t border-t-foreground/10 border-b border-b-foreground/10">
         <a
-          href="https://www.argentina.gob.ar/"
+          href="https://www.linkedin.com/in/mario-molina-steeldetailer/"
           className="text-black dark:text-white hover:underline"
           title="Linkein"
         >

@@ -31,7 +31,7 @@ interface ColumnHeadersList {
   [key: string]: ColumnHeader[];
 }
 
-const Upn: React.FC<Props> = ({ setFilteredLength }) => {
+const Tablesperfil: React.FC<Props> = ({ setFilteredLength }) => {
   // TABLE HEADERS/////////////////////////////////////////////////////////
   const [selectedHeader, setSelectedHeader] = useState("upn");
   const [columnHeaderss, setColumnHeaderss] = useState<ColumnHeader[]>([]);
@@ -124,9 +124,9 @@ const Upn: React.FC<Props> = ({ setFilteredLength }) => {
   const filtered =
     searchTerm !== ""
       ? supabaseData.filter(
-          (data) =>
-            data.h === parseInt(searchTerm) || data.b === parseInt(searchTerm)
-        )
+        (data) =>
+          data.h === parseInt(searchTerm) || data.b === parseInt(searchTerm)
+      )
       : supabaseData;
 
   useEffect(() => {
@@ -158,46 +158,51 @@ const Upn: React.FC<Props> = ({ setFilteredLength }) => {
   }, [selectedHeader]);
 
   return (
-    <Suspense fallback={<h2>Loading UPN...</h2>}>
-      <div className="w-full flex flex-row justify-between sm:px-6 lg:px-20 xl:px-20">
-        <h1 className="w-1/3 hidden sm:hidden lg:flex xl:flex">
-          <u>List of profile:</u>
-        </h1>
-        <div id="search" className="flex w-full sm:w-full lg:w-1/3 xl:w-1/3">
-          <Input
-            placeholder="Search..."
-            type="text"
-            onChange={handleSearchChange}
-          />
+    <div>
+      <div id="search" 
+        className="flex justify-center px-6 lg:px-20 xl:px-20">
+        <Input
+          className="w-full"
+          placeholder="Search..."
+          type="text"
+          onChange={handleSearchChange}
+        />
+      </div>
+      <div id="buttons"
+        className="w-full flex flex-col sm:flex-row px-6 lg:px-20 xl:px-20 py-6">
+        <div id="group1"
+          className="w-full flex flex-row justify-around pb-3">
+          <Button
+            variant="secondary"
+            onClick={() => handleHeaderChange("perfilW")}
+          >
+            Perfil W
+          </Button>
+          <Button variant="secondary" onClick={() => handleHeaderChange("upn")}>
+            UPN
+          </Button>
+          <Button variant="secondary" onClick={() => handleHeaderChange("pnl")}>
+            PNL
+          </Button>
+        </div>
+        <div id="group2"
+          className="w-full flex flex-row justify-around">
+          <Button
+            variant="secondary"
+            onClick={() => handleHeaderChange("chapaLC")}
+          >
+            Chapa LC
+          </Button>
+          <Button
+            variant="secondary"
+            onClick={() => handleHeaderChange("perfilC")}
+          >
+            Perfil C
+          </Button>
         </div>
       </div>
-      <div className="w-full flex flex-row gap-4 justify-around sm:px-6 lg:px-20 xl:px-20">
-        <Button
-          variant="secondary"
-          onClick={() => handleHeaderChange("perfilW")}
-        >
-          Perfil W
-        </Button>
-        <Button variant="secondary" onClick={() => handleHeaderChange("upn")}>
-          UPN
-        </Button>
-        <Button variant="secondary" onClick={() => handleHeaderChange("pnl")}>
-          PNL
-        </Button>
-        <Button
-          variant="secondary"
-          onClick={() => handleHeaderChange("chapaLC")}
-        >
-          Chapa LC
-        </Button>
-        <Button
-          variant="secondary"
-          onClick={() => handleHeaderChange("perfilC")}
-        >
-          Perfil C
-        </Button>
-      </div>
-      <article className="flex flex-col gap-8 justify-center sm:px-6 lg:px-20 xl:px-20">
+      <article id="descrip_perfil"
+        className="flex flex-col gap-8 justify-center px-6 lg:px-20 xl:px-20 pb-6">
         <h1 className="text-2xl text-center font-semibold tracking-widest">
           <u>Perfil UPN</u>
         </h1>
@@ -206,8 +211,29 @@ const Upn: React.FC<Props> = ({ setFilteredLength }) => {
         </p>
       </article>
 
-      <div className="flex flex-col-reverse justify-center sm:flex-col-reverse lg:flex-row xl:flex-row">
-        <div className="w-full sm:w-full lg:w-2/3 xl:w-2/3">
+      <div id="img_perfil"
+        className="w-full flex flex-row justify-center pb-6"
+      >
+        <Image
+          className=""
+          src={`/${selectedHeader}.svg`}
+          width={400}
+          height={400}
+          alt={`Perfil ${selectedHeader}`}
+        />
+        <div className="h-8 sm:h-8 lg:h-16 xl:h-16"></div>
+        <div className="hidden grid grid-col gap-2 justify-center sm:hidden lg:grid xl:grid">
+          <h1>A = área de la sección</h1>
+          <h1>I = momento de inercia</h1>
+          <h1>W = módulo resistente</h1>
+          <h1>i = √(I/A) = radio de giro</h1>
+          <h1>u = sup. lateral x mts.</h1>
+        </div>
+      </div>
+
+      <div id="tabla"
+        className="flex flex-col-reverse justify-center lg:flex-row xl:flex-row px-6 lg:px-20 xl:px-20">
+        <div className="w-full">
           <Table>
             <TableHeader>
               <TableRow>
@@ -245,28 +271,8 @@ const Upn: React.FC<Props> = ({ setFilteredLength }) => {
             </TableBody>
           </Table>
         </div>
-        <div
-          id="perfil"
-          className="overflow-hidden sm:w-full lg:w-3/12 xl:w-3/12 flex flex-col justify-center"
-        >
-          <Image
-            className="sm:h-[300px] lg:h-[400px] xl:h-[400px] scale-100 sm:scale-100 lg:scale-150 xl:scale-150"
-            src="/UPN220.svg"
-            width={400}
-            height={400}
-            alt="Perfil UPN"
-          />
-          <div className="h-8 sm:h-8 lg:h-16 xl:h-16"></div>
-          <div className="hidden grid grid-col gap-4 justify-center sm:hidden lg:grid xl:grid">
-            <h1>A = área de la sección</h1>
-            <h1>I = momento de inercia</h1>
-            <h1>W = módulo resistente</h1>
-            <h1>i = √(I/A) = radio de giro</h1>
-            <h1>u = sup. lateral x mts.</h1>
-          </div>
-        </div>
       </div>
-    </Suspense>
+    </div>
   );
 };
-export default Upn;
+export default Tablesperfil;

@@ -17,7 +17,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        'my_bg_hero' : "url('../../public/bg-4.jpg')",
+        'my_bg_hero' : "url('../../public/bg-7.jpg')",
       },
       colors: {
         border: "hsl(var(--border))",
